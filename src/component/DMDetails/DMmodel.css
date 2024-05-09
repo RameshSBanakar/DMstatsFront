@@ -1,0 +1,31 @@
+
+.dm-model-data-sub:hover{
+   /* background-color: white; */
+   cursor: pointer;
+}
+.dm-model-main{
+    background-color: blanchedalmond;
+    border: 1px solid black;
+    width: 100%;
+}
+.dm-model-list{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    width: 100%;
+   
+}
+.list-dm-models{
+    border: 1px solid black;
+}
+.innerDivOfdmModel{
+    flex: 1;
+    /* border: 1px solid black; */
+    width:100%;
+    height: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.keyStyle{
+    font-weight: 500;
+}

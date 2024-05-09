@@ -1,0 +1,77 @@
+/* FileBasedDm.css */
+
+/* Style for the container div */
+.file-input-container {
+    margin-top: 15%;
+    margin-left: 20%;
+    position: relative;
+    /* Adjust as needed */
+}
+
+.folderPathShow,
+.file-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.folderPathShow {
+   z-index: 1;
+   /* border: 1px solid black; */
+   border-radius: 10px;
+   height: 40px;
+   width:500px
+}
+
+.file-input{
+    cursor: pointer;
+    z-index: 1;
+    opacity: 0;
+    height: 40px;
+    width: 500px;
+    /* Ensure this input appears below */
+    background-color: rgba(0, 0, 255, 0.5);
+    /* Just for visualization */
+}
+.dmfolder-submit-btn{
+    z-index: 2;
+}
+.slect-folder{
+    /* z-index: 10px; */
+    margin-top: -70px;
+    color: red;
+}
+.btn-go{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 70%;
+    margin-left: .5%;
+    height: 30px;
+    text-align: center;
+    border-radius: 5px;
+   
+}
+.btn-go:hover{
+    background-color: black;
+    color: white;
+}
+
+
+.historydiv{
+    z-index: 1;
+    border: solid 1px black;
+    height: 80%;
+    margin-top: 7%;
+    overflow-y: scroll;
+    border-radius: 5px;
+
+}
+.fileDM-main{
+    /* border: 1px solid black; */
+    width:60%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 80vh;
+    margin-top: 30px;
+    
+}

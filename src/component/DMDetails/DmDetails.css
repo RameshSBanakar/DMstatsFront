@@ -1,0 +1,51 @@
+.dmDetails-main-container {
+    width: 100%;
+    margin: 10px;
+}
+
+.dmpath {
+    height: 30px;
+    width: 100%;
+    color: red;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.dmDetails {
+    display: flex;
+    width: 100%;
+    border: 1px solid green;
+}
+
+.dmDetails-left-container {
+    width: 70%;
+    overflow-x: scroll;
+    border: 1px solid blue;
+    height: 82vh;
+}
+
+.dmDetails-right {
+    display: flex;
+    flex-direction: column;
+    height: 82vh;
+    width: 30%;
+    overflow-y: scroll;
+
+}
+
+.background {
+    background-color: blanchedalmond;
+    border: 1px solid black;
+}
+
+.drop-down-img {
+    height: 15px;
+    rotate: 270deg;
+    margin-left: 5px;
+
+}
+
+.dmDetailsDesign{
+    color: blue;
+    font-weight: 500;
+}

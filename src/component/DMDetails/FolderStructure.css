@@ -1,0 +1,46 @@
+.folder-icon{
+    width:15px;
+    height: 15px;
+}
+li span{
+    display: flex;
+}
+.content-size{
+    color:rgb(51, 0, 255);
+    margin-left: 80px;
+    font-size: 12px;
+    /* margin-top: -20px; */
+    
+}
+ul div{
+    display: flex;
+}
+.foldervisiblemarks{
+    width:15px;
+    height: 15px;
+    border-radius: 50%;
+}
+.sizeOfFile{
+    margin-right: 20px;
+    color: rgb(255, 0, 21);
+    font-weight: 400;
+}
+.folderStructure{
+    margin-left: 20px;
+    font-weight: 600;
+    margin-right: 90px;
+}
+.filesize{
+    color: rgb(255, 0, 21);
+    font-weight: 600;
+}
+.lastmodifieddate{
+    font-weight: 600;
+    color: rgb(51, 0, 255);
+}
+.folderStructureInnerDiv{
+    border:1px solid black;
+    width:100%;
+    padding-left: 20px;
+    border-radius: 2px;
+}

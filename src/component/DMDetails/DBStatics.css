@@ -1,0 +1,12 @@
+.dbstatics{
+    list-style: none;
+    padding-left: 10px;
+   
+}
+.settings{
+    background-color: blanchedalmond;
+    cursor: pointer;
+}
+.dbstastics-main{
+    border: 1px solid black;
+}

@@ -1,0 +1,11 @@
+.NumberOfItems-list{
+    list-style: none;
+    display: flex;
+    
+ 
+}
+.NumberOfItems{
+    border: 1px solid black;
+    padding-left: 10px;
+    background-color: blanchedalmond;
+}

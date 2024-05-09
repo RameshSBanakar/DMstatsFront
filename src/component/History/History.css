@@ -1,0 +1,80 @@
+.histroy-items {
+    display: flex;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 5px;
+    justify-content: center;
+    margin: 5px 5px 5px 5px;
+    /* box-shadow: 2px 2px 2px; */
+
+}
+
+.histroy-items:hover {
+    background-color: antiquewhite;
+}
+
+.itemname {
+    width: 60%;
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+
+.itemnameHeading {
+    width: 60%;
+    margin-left: 20px;
+    font-weight: 600;
+    color: darkgrey;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.itemLastdateHeading {
+    width: 20%;
+    font-weight: 600;
+    color: darkgrey;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.deleteImageidvHeading {
+    margin-left: 100px;
+    font-weight: 600;
+    color: darkgrey;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.itemLastdate {
+    width: 20%;
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+
+.deleteImageidv {
+    /* width: 20%; */
+    /* border: 1px solid blue; */
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 100px;
+}
+
+.deleteImage {
+    margin-left: auto;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.hedingforhistory {
+    height: 50px;
+    display: flex;
+    border: 1px solid black;
+   
+}
+.nohistory {
+    color: darkgrey;
+    font-weight: 700;
+   text-align: center;
+}

@@ -1,0 +1,20 @@
+.sidebar {
+    margin: 0px;
+    width: 15%;
+    background-color: #ccc;
+    height: 99vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.sidebar div {
+    align-items: center;
+    margin: 10px;
+    border: 1px solid #f3f3f3;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #f3f3f3;
+}
