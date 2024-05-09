@@ -18,13 +18,17 @@ const DBStatics = () => {
           <strong style={{ marginLeft: "2px", marginRight: "4px" }}>
             Total Atrributes:
           </strong>
-          <spn style={ {color:"orange"}}>{NumberOfItems["Total Atrributes"]}</spn>
+          <spn style={{ color: "green" }}>
+            {NumberOfItems["Total Atrributes"]}
+          </spn>
         </li>
         <li className="dbstatics">
           <strong style={{ marginLeft: "2px", marginRight: "4px" }}>
             Total Reference:
           </strong>
-          <spn style={ {color:"orange"}}>{NumberOfItems["Total Reference"]}</spn>
+          <spn style={{ color: "green" }}>
+            {NumberOfItems["Total Reference"]}
+          </spn>
         </li>
 
         <div className="settings" onClick={toggleShowAndHide}>
@@ -35,7 +39,7 @@ const DBStatics = () => {
                 <strong style={{ marginLeft: "2px", marginRight: "4px" }}>
                   {item.Name}:
                 </strong>
-                <spn style={{ color: "orange" }}>{item.Value}</spn>
+                <spn style={{ color: "green" }}>{item.Value}</spn>
                 {/* {`${item.Name}:${item.Value}`} */}
               </li>
             );

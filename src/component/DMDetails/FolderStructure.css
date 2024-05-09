@@ -39,7 +39,7 @@ ul div{
     color: rgb(51, 0, 255);
 }
 .folderStructureInnerDiv{
-    border:1px solid black;
+    border:.5px solid rgb(180, 177, 177);
     width:100%;
     padding-left: 20px;
     border-radius: 2px;

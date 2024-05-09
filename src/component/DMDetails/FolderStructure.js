@@ -119,7 +119,7 @@ const FolderExplorer = () => {
                         {/* <span>{size}</span> */}
                       </div>
                     )}
-                    <div>
+                    {/* <div> */}
                       {/* <span className="content-size">
                       {content.size && (
                         <span className="sizeOfFile">
@@ -128,7 +128,7 @@ const FolderExplorer = () => {
                       )}{" "}
                       {content.lastModified && lastDate(content.lastModified)}
                     </span> */}
-                    </div>
+                    {/* </div> */}
                   </li>
                 ))}
               </ul>

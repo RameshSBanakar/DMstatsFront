@@ -13,9 +13,11 @@ const NumberOfItems = () => {
           ([key, value]) => (
             <li key={key} className="NumberOfItems-list">
               <span>
-                <strong style={{marginLeft:"2px",marginRight:"4px"}}>{key}:</strong>
+                <strong style={{ marginLeft: "2px", marginRight: "4px" }}>
+                  {key}:
+                </strong>
               </span>
-              <span style={{color:"red"}}>{value}</span>
+              <span style={{ color: "green" }}>{value}</span>
             </li>
           )
         )}
