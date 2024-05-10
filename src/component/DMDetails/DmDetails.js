@@ -27,7 +27,7 @@ const DmDetails = () => {
     setDataModel(!dataModel);
   };
 
-  console.log(totalObjects);
+  // console.log(totalObjects);
  
     return (
       <div className="dmDetails-main-container">
@@ -44,7 +44,7 @@ const DmDetails = () => {
               <span className="dmDetailsDesign">Number Of DM Items</span>
               <img src={drop_down} className="drop-down-img" alt="" />
               <span style={{ marginLeft: "10px", color: "green" }}>
-                {/* {totalObjects && totalObjects.state.totalObjects} */}
+                {/* {totalObjects.state.totalObjects ? totalObjects.state.totalObjects:0} */}
               </span>
               {numberOfItems && <NumberOfItems />}
             </div>

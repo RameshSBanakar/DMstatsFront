@@ -37,21 +37,21 @@ const History = () => {
           ))}
         </div>
       );
+    } else {
+      return (
+        <div>
+          <div className="hedingforhistory">
+            <div className="itemnameHeading">DM Name</div>
+            <div className="itemLastdateHeading">Last View date</div>
+            <div className="deleteImageidvHeading">Delete</div>
+          </div>
+          <div className="nohistory">No Histroy Available</div>
+        </div>
+      );
     }
   }  
    
-    else {
-        return (
-          <div>
-            <div className="hedingforhistory">
-              <div className="itemnameHeading">DM Name</div>
-              <div className="itemLastdateHeading">Last View date</div>
-              <div className="deleteImageidvHeading">Delete</div>
-            </div>
-            <div className="nohistory">No Histroy Available</div>
-          </div>
-        );
-    }
+   
  
 };
 

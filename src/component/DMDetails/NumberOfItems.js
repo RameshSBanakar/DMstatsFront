@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import "./NumberOfItems.css";
 const NumberOfItems = () => {
   const NumberOfItems = useSelector((state) => state.dbFileData.state);
-  console.log(NumberOfItems);
+  // console.log(NumberOfItems);
   if (!NumberOfItems) {
     return <div>Nothing Found</div>;
   } else {

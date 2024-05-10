@@ -1,11 +1,15 @@
-const initialState = false;
+const initialState ={state:false};
 
 const Reducer = (state = initialState, action) => {
   switch (action.type) {
-   
-    case "SIDEBAR_SHOW": {
+    case "SPINNER_START": {
       return {
-        state: action.payload,
+        state: true,
+      };
+    }
+    case "SPINNER_STOP": {
+      return {
+        state: false,
       };
     }
     default: {

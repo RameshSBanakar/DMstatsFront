@@ -10,6 +10,7 @@ import axios from "axios";
 import { adddmpath } from "../../Redux/Actions/dmpathAction";
 import History from "../History/History";
 import { addHistory } from "../../Redux/Actions/HistoryAction";
+import { spinnerStart, spinnerStop } from "../../Redux/Actions/SpinnerAction";
 const FileBasedDm = () => {
   //  const history = [
   //    { name: "my_dm", lastDate: "22/3/2000" },
@@ -34,7 +35,7 @@ const FileBasedDm = () => {
   const sendFileToBackend = async (file) => {
     const formData = new FormData();
     formData.append("xmlfile", file);
-
+    dispatch(spinnerStart())
     try {
       const response = await axios.post(
         "https://dmstats.onrender.com/filesUpload",
@@ -52,8 +53,10 @@ const FileBasedDm = () => {
       } else {
         dispatch(dbDataAdd(response.data));
       }
+      dispatch(spinnerStop())
       // Handle success response
     } catch (error) {
+      dispatch(spinnerStop());
       console.error("Error uploading file:", error);
       // Handle error
     }

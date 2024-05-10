@@ -1,5 +1,5 @@
 export const showRightSideBar = (data) => async (dispath) => {
-  console.log(data)
+  // console.log(data)
   dispath({
     type: "SIDEBAR_SHOW",
     payload: data,

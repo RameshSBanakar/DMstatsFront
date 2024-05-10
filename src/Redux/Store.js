@@ -7,6 +7,7 @@ import userReducer from "./Reducers/UserReducer"
 import dmpath from "./Reducers/dmpathReducer";
 import historyReducer from "./Reducers/HistoryReducer"
 import rightSidebarReducer from "./Reducers/RightSideBar"
+import spinnerReducer from "./Reducers/SpinnerReducer"
 const rootReducer = combineReducers({
   fileListOfDM: FileReducer,
   dbFileData: dbReducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   userReducer: userReducer,
   dmpath: dmpath,
   history: historyReducer,
-  rightSideBar:rightSidebarReducer
+  rightSideBar: rightSidebarReducer,
+  spinner:spinnerReducer
 });
 const Store = createStore(rootReducer, applyMiddleware(...[thunk]));
 export default Store;

@@ -1,7 +1,8 @@
 import axios from "axios";
 import { Store } from "react-notifications-component";
+import { spinnerStart, spinnerStop } from "./SpinnerAction";
 let notification = {
-  title: "Wonderful!",
+  // title: "Wonderful!",
   message: "Configurable",
   type: "success",
   insert: "top",
@@ -13,23 +14,27 @@ let notification = {
     onScreen: true,
   },
 };
+
 export const userLogin = (data) => async (dispatch) => {
   try {
+    
     const config = {
       headers: {
         "Content-Type": "application/json",
       },
     };
+    dispatch(spinnerStart());
     const resp = await axios.post(
       "https://dmstats.onrender.com/auth/login",
       data,
       config
     );
+     dispatch(spinnerStop());
     // console.log(resp.data);
     if (resp.data.status) {
       Store.addNotification({
         ...notification,
-        title: "Wonderful!",
+        // title: "Wonderful!",
         message: resp.data.message,
       });
       dispatch({
@@ -40,14 +45,14 @@ export const userLogin = (data) => async (dispatch) => {
        if (resp.data.message === "credentials are not correct") {
          Store.addNotification({
            ...notification,
-           title: "Warning",
+          //  title: "Warning",
            message: resp.data.message,
            type: "warning",
          });
        } else {
          Store.addNotification({
            ...notification,
-           title: "Danger X",
+          //  title: "Danger X",
            message: resp.data.message,
            type: "danger",
          });
@@ -57,10 +62,12 @@ export const userLogin = (data) => async (dispatch) => {
         payload: resp.data,
       });
     }
+   
   } catch (error) {
+    dispatch(spinnerStop());
     Store.addNotification({
       ...notification,
-      title: "Wonderful!",
+      // title: "Wonderful!",
       message: error.message,
       type: "danger",
     });
@@ -71,7 +78,7 @@ export const userLogin = (data) => async (dispatch) => {
 export const logoutUser = (data) => async (dispatch) => {
      Store.addNotification({
        ...notification,
-       title: " success",
+      //  title: " success",
        message: "User logged out success",
        type: "success",
      });
@@ -82,22 +89,24 @@ export const logoutUser = (data) => async (dispatch) => {
 };
 export const userSignup = (data) => async (dispatch) => {
   try {
+    
     const config = {
       headers: {
         "Content-Type": "application/json",
       },
     };
+    dispatch(spinnerStart());
     const resp = await axios.post(
       "https://dmstats.onrender.com/auth/signup",
       data,
       config
     );
-    console.log(resp);
-
+    // console.log(resp);
+     dispatch(spinnerStop());
     if (resp.data.status) {
       Store.addNotification({
         ...notification,
-        title: "Wonderful!",
+        // title: "Wonderful!",
         message: resp.data.message,
       });
       dispatch({
@@ -107,7 +116,7 @@ export const userSignup = (data) => async (dispatch) => {
     } else {
      Store.addNotification({
        ...notification,
-       title: "Danger X",
+      //  title: "Danger X",
        message: resp.data.message,
        type: "danger",
      });
@@ -115,12 +124,14 @@ export const userSignup = (data) => async (dispatch) => {
         type: "SIGNUP_FAILED",
         payload: resp.data,
       });
-      console.log("from usersignup else block");
+      // console.log("from usersignup else block");
     }
+   
   } catch (error) {
+    dispatch(spinnerStop());
     Store.addNotification({
       ...notification,
-      title: "Danger X",
+      // title: "Danger X",
       message: error.message,
       type: "danger",
     });

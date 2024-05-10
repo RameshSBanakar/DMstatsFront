@@ -1,22 +1,29 @@
 import axios from "axios";
+import { spinnerStart, spinnerStop } from "./SpinnerAction";
 export const getHistory = (data) => async (dispatch) => {
   try {
+   
     const config = {
       headers: {
         "Content-Type": "application/json",
         "auth-token": localStorage.getItem("auth-token"),
       },
     };
+    //  dispatch(spinnerStart());
     const resp = await axios.get(
       "https://dmstats.onrender.com/history/getHistory",
       config
     );
+    // dispatch(spinnerStop());
     // console.log(resp.data);
     dispatch({
       type: "GET_HISTORY",
       payload: resp.data.data,
     });
-  } catch (error) {}
+    
+  } catch (error) {
+    // dispatch(spinnerStop());
+  }
 };
 
 export const addHistory = (data) => async (dispatch) => {

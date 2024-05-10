@@ -44,26 +44,10 @@ const FolderExplorer = () => {
     // const isVisible = true;
     const extName = folderName.split(".")[1]
   
-  
-    // const expand = () => {
-    //   setExpandValue(1)
-    // }
-    // if (expandValue) {
-    //   if (!extName) {
-    //     toggleFolderVisibility(folderName);
-    //   } else {
-    //     setExpandValue(0);
-    //   }
-    // }
       return (
         <ul style={{ listStyleType: "none" }}>
           <li key={folderName}>
-            {/* <span
-            style={{ cursor: "pointer" }}
-            onClick={() => toggleFolderVisibility(folderName)}
-          >
-            {" "}
-          </span> */}
+           
             <div className="folderStructureInnerDiv">
               <span
                 style={{ cursor: "pointer" }}
@@ -98,11 +82,7 @@ const FolderExplorer = () => {
                 )}{" "}
                 {folder.lastModified && lastDate(folder.lastModified)}
               </span>
-              {/* {!extName && (
-                <button style={{ marginLeft: "auto" }} onClick={expand}>
-                  expand
-                </button>
-              )} */}
+             
             </div>
 
             {isVisible && (
@@ -120,16 +100,7 @@ const FolderExplorer = () => {
                         {/* <span>{size}</span> */}
                       </div>
                     )}
-                    {/* <div> */}
-                    {/* <span className="content-size">
-                      {content.size && (
-                        <span className="sizeOfFile">
-                          {Math.round(content.size / 1024).toString() + "KB"}
-                        </span>
-                      )}{" "}
-                      {content.lastModified && lastDate(content.lastModified)}
-                    </span> */}
-                    {/* </div> */}
+                   
                   </li>
                 ))}
               </ul>

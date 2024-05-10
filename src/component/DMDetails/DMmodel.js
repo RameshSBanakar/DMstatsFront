@@ -121,7 +121,13 @@ const DMmodel = () => {
                         <li key={key} style={{ listStyle: "none" }}>
                           <div className="innerDivOfdmModel">
                             {key === "Attributes" ? (
-                              <span className="keyStyle" style={ {cursor:"pointer"}} onClick={sidebarshow}>{key}:</span>
+                              <span
+                                className="keyStyle"
+                                style={{ cursor: "pointer" }}
+                                onClick={sidebarshow}
+                              >
+                                {key}:
+                              </span>
                             ) : (
                               <span className="keyStyle">{key}:</span>
                             )}
