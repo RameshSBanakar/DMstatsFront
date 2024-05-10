@@ -76,7 +76,7 @@ const FileBasedDm = () => {
 
   return (
     <>
-      <Sidebar />
+      {/* <Sidebar /> */}
       <div className="fileDM-main">
         <div className="file-input-container">
           <h1 className="slect-folder">Select DM Folder</h1>

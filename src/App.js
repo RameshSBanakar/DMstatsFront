@@ -9,6 +9,7 @@ import ServerBasedDm from "./component/ServerBasedDm/ServerBasedDm";
 
 import DmDetails from "./component/DMDetails/DmDetails";
 import { useSelector } from "react-redux";
+import RightSidebar from "./component/RightSidebar/RightSidebar";
 
 
 function App() {
@@ -68,7 +69,7 @@ function App() {
           />
         </Routes>
       </div>
-     
+      <RightSidebar />
     </div>
   );
 }

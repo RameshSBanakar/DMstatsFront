@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import "./NumberOfItems.css";
 const NumberOfItems = () => {
   const NumberOfItems = useSelector((state) => state.dbFileData.state);
-
+  console.log(NumberOfItems);
   if (!NumberOfItems) {
     return <div>Nothing Found</div>;
   } else {

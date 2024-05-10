@@ -70,28 +70,29 @@ const FolderExplorer = () => {
                 onClick={() => toggleFolderVisibility(folderName)}
               >
                 {isVisible ? (
-                  <img src={minus_mark} className="foldervisiblemarks" />
+                  <img src={minus_mark} className="foldervisiblemarks" alt="" />
                 ) : extName ? (
-                  <img src={minus_mark} className="foldervisiblemarks" />
+                  <img src={minus_mark} className="foldervisiblemarks" alt="" />
                 ) : (
                   <>
                     {/* <button></button> */}
-                    <img src={plus_mark} className="foldervisiblemarks" />
+                    <img
+                      src={plus_mark}
+                      className="foldervisiblemarks"
+                      alt=""
+                    />
                   </>
                 )}
               </span>
               {extName ? (
-                <img src={File_icon} className="folder-icon" />
+                <img src={File_icon} className="folder-icon" alt="" />
               ) : (
-                <img src={Folder_file} className="folder-icon" />
+                <img src={Folder_file} className="folder-icon" alt="" />
               )}
               {folderName}{" "}
               <span className="content-size">
                 {folder.size && (
-                  <span
-                    className="sizeOfFile"
-                   
-                  >
+                  <span className="sizeOfFile">
                     {Math.round(folder.size / 1024).toString() + "KB"}
                   </span>
                 )}{" "}
@@ -120,7 +121,7 @@ const FolderExplorer = () => {
                       </div>
                     )}
                     {/* <div> */}
-                      {/* <span className="content-size">
+                    {/* <span className="content-size">
                       {content.size && (
                         <span className="sizeOfFile">
                           {Math.round(content.size / 1024).toString() + "KB"}

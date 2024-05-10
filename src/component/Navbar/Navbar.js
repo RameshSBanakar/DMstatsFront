@@ -24,9 +24,12 @@ const Navbar = () => {
         <span onClick={() => navigate("/filebased")}>
           <img src={DM_log} alt="" className="dmlogo" />
         </span>
-        {/* <Link to="/filebased">
-          <span className="DMpath">DM Overview</span>
-        </Link> */}
+        <Link to="/filebased">
+          <span className="DMpath">File DM</span>
+        </Link>
+        <Link to="/serverbased">
+          <span className="DMpath">Sever DM</span>
+        </Link>
       </div>
 
       <div className="dropdown navbar-login1">
@@ -37,7 +40,7 @@ const Navbar = () => {
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-        <img src={nav_options} alt="" />
+          <img src={nav_options} alt="" />
         </button>
         <ul className="dropdown-menu">
           <li>

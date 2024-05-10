@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./DMmodel.css";
+import { showRightSideBar } from "../../Redux/Actions/RightSideBar";
 const DMmodel = () => {
+  const dispatch=useDispatch()
   const xmlData = useSelector((state) => state.xmlFileData.state);
   const [innerObjectsVisibility, setInnerObjectsVisibility] = useState({});
   const [data, setData] = useState({});
@@ -14,6 +16,9 @@ const DMmodel = () => {
     }));
   };
   // console.log(xmlData)
+  const sidebarshow = () => {
+    dispatch(showRightSideBar(true));
+  }
   useEffect(() => {
     if (xmlData) {
       const iterateThroughObject = (data) => {
@@ -111,21 +116,25 @@ const DMmodel = () => {
                     {/* Render properties and attributes of the inner object */}
                     {/* <p>{innerObjectName}</p> */}
                     {/* <ul> */}
-                      {Object.entries(data[innerObjectName]).map(
-                        ([key, value]) => (
-                          <li key={key} style={ {listStyle:"none"}}>
-                            <div className="innerDivOfdmModel">
+                    {Object.entries(data[innerObjectName]).map(
+                      ([key, value]) => (
+                        <li key={key} style={{ listStyle: "none" }}>
+                          <div className="innerDivOfdmModel">
+                            {key === "Attributes" ? (
+                              <span className="keyStyle" style={ {cursor:"pointer"}} onClick={sidebarshow}>{key}:</span>
+                            ) : (
                               <span className="keyStyle">{key}:</span>
-                              <ol>
-                                {value.map((v, index) => (
-                                  <li key={index}>{v} </li>
-                                ))}
-                              </ol>
-                              <p></p>
-                            </div>
-                          </li>
-                        )
-                      )}
+                            )}
+                            <ol>
+                              {value.map((v, index) => (
+                                <li key={index}>{v} </li>
+                              ))}
+                            </ol>
+                            <p></p>
+                          </div>
+                        </li>
+                      )
+                    )}
                     {/* </ul> */}
                   </div>
                 )}

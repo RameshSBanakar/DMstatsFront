@@ -1,6 +1,6 @@
-.App {
+/* .App {
     display: flex;
-}
+} */
 
 .content {
     padding: 20px;
@@ -9,15 +9,18 @@
 .sidebar {
     position: fixed;
     top: 0;
-    right: -350px;
-   
-    width: 350px;
+    right: -450px;
+    width: 450px;
     height: 100%;
     background-color: #f4f4f4;
     transition: 0.5s;
     padding: 20px;
+    overflow-y: scroll;
 }
 
 .sidebar.open {
     right: 0;
+}
+.vishwahadabitti{
+    border:1px solid black;
 }

@@ -14,23 +14,40 @@ const DBStatics = () => {
   } else {
     return (
       <div className="dbstastics-main">
-        <li className="dbstatics">
-          <strong style={{ marginLeft: "2px", marginRight: "4px" }}>
-            Total Atrributes:
-          </strong>
-          <spn style={{ color: "green" }}>
-            {NumberOfItems["Total Atrributes"]}
-          </spn>
-        </li>
-        <li className="dbstatics">
-          <strong style={{ marginLeft: "2px", marginRight: "4px" }}>
-            Total Reference:
-          </strong>
-          <spn style={{ color: "green" }}>
-            {NumberOfItems["Total Reference"]}
-          </spn>
-        </li>
-
+        <div className="vishwahadabitti">
+          <li className="dbstatics">
+            <strong style={{ marginLeft: "2px", marginRight: "4px" }}>
+              Total Atrributes:
+            </strong>
+            <spn style={{ color: "green" }}>
+              {NumberOfItems["Total Atrributes"]}
+            </spn>
+          </li>
+          <li className="dbstatics">
+            <strong style={{ marginLeft: "2px", marginRight: "4px" }}>
+              Total Reference:
+            </strong>
+            <spn style={{ color: "green" }}>
+              {NumberOfItems["Total Reference"]}
+            </spn>
+          </li>
+          <li className="dbstatics">
+            <strong style={{ marginLeft: "2px", marginRight: "4px" }}>
+              Total Typed Values:
+            </strong>
+            <spn style={{ color: "green" }}>
+              {NumberOfItems["typedValues"]}
+            </spn>
+          </li>
+          <li className="dbstatics">
+            <strong style={{ marginLeft: "2px", marginRight: "4px" }}>
+              Total Number Of Values:
+            </strong>
+            <spn style={{ color: "green" }}>
+              {NumberOfItems["values"]}
+            </spn>
+          </li>
+        </div>
         <div className="settings" onClick={toggleShowAndHide}>
           <strong>Settings</strong>
           {NumberOfItems["settings"].map((item, index) => {
