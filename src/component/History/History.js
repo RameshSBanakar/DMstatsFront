@@ -13,19 +13,23 @@ const History = () => {
   const removeHistoryFrom = (item) => {
     dispatch(removeHistory(item))
   }
+  const lastDateConvert = (lastDate) => {
+    let date = new Date(lastDate);
+    return date.toLocaleString()
+  }
   if (history) {
     if (history.length > 0) {
       return (
         <div>
           <div className="hedingforhistory">
             <div className="itemnameHeading">DM Name</div>
-            <div className="itemLastdateHeading">Last View date</div>
+            <div className="itemLastdateHeading">Last View date and time</div>
             <div className="deleteImageidvHeading">Delete</div>
           </div>
           {history.map((item, index) => (
             <div key={index} className="histroy-items">
               <div className="itemname">{item.name}</div>
-              <div className="itemLastdate">{item.lastDate}</div>
+              <div className="itemLastdate">{lastDateConvert(item.lastDate)}</div>
               <div className="deleteImageidv">
                 <img
                   src={delete_image}
@@ -42,7 +46,7 @@ const History = () => {
         <div>
           <div className="hedingforhistory">
             <div className="itemnameHeading">DM Name</div>
-            <div className="itemLastdateHeading">Last View date</div>
+            <div className="itemLastdateHeading">Last View date and time</div>
             <div className="deleteImageidvHeading">Delete</div>
           </div>
           <div className="nohistory">No Histroy Available</div>
