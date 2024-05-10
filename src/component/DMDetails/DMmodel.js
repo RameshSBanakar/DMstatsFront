@@ -127,7 +127,7 @@ const DMmodel = () => {
                                 style={{ cursor: "pointer" }}
                                 onClick={sidebarshow}
                               >
-                                {key}:<img src={drop_down} style={{width:"20px",height:"20px"} } />
+                                {key}:<img src={drop_down} style={{width:"15px",height:"15px",marginTop:"5px"} } />
                               </span>
                             ) : (
                               <span className="keyStyle">{key}:</span>
