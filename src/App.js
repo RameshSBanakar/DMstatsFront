@@ -17,7 +17,7 @@ function App() {
     (state) => state.userReducer.isAuthenticated
   );
   
-  console.log(spinner.state);
+  // console.log(spinner.state);
   return (
     <div>
       <Navbar />

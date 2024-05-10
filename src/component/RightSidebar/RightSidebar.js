@@ -9,13 +9,13 @@ const RightSidebar = () => {
   const hideSideBar = () => {
     dispatch(showRightSideBar(false));
   };
-  console.log(Atrributes);
+  // console.log(Atrributes);
   if (Atrributes) {
     return (
       <div className="App">
         <div className="content"></div>
         <div className={`sidebar ${isSidebarOpen.state ? "open" : ""}`}>
-          <button onClick={hideSideBar}>X</button>
+          <button onClick={hideSideBar} style={{color:"red"}}>Close</button>
           <table className='table'>
             <thead className='tableHeder'>
               <tr>

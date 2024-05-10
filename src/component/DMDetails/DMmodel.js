@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./DMmodel.css";
 import { showRightSideBar } from "../../Redux/Actions/RightSideBar";
+import drop_down from "../Assets/Dropdown.webp"
 const DMmodel = () => {
   const dispatch=useDispatch()
   const xmlData = useSelector((state) => state.xmlFileData.state);
@@ -126,7 +127,7 @@ const DMmodel = () => {
                                 style={{ cursor: "pointer" }}
                                 onClick={sidebarshow}
                               >
-                                {key}:
+                                {key}:<img src={drop_down} style={{width:"20px",height:"20px"} } />
                               </span>
                             ) : (
                               <span className="keyStyle">{key}:</span>

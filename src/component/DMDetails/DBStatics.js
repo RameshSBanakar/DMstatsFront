@@ -14,6 +14,7 @@ const DBStatics = () => {
   } else {
     return (
       <div className="dbstastics-main">
+        <strong>Table Data</strong>
         <div className="vishwahadabitti">
           <li className="dbstatics">
             <strong style={{ marginLeft: "2px", marginRight: "4px" }}>

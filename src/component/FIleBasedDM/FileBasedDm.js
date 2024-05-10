@@ -46,7 +46,7 @@ const FileBasedDm = () => {
           },
         }
       );
-      console.log("File uploaded successfully:");
+      // console.log("File uploaded successfully:");
      
       if (response.data.XMLData) {
         dispatch(XmlDataAdd(response.data.XMLData));
@@ -57,7 +57,7 @@ const FileBasedDm = () => {
       // Handle success response
     } catch (error) {
       dispatch(spinnerStop());
-      console.error("Error uploading file:", error);
+      // console.error("Error uploading file:", error);
       // Handle error
     }
   };
