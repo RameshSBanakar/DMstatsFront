@@ -31,7 +31,7 @@ const dispatch=useDispatch()
     }
   }, []);
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({noClick:true,
       onDrop,
       
     multiple: true,
