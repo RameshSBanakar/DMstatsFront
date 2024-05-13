@@ -6,8 +6,8 @@ import  minus_mark  from "../Assets/minus.avif"
 import plus_mark from "../Assets/plus.png"
 import "./FolderStructure.css";
 const FolderExplorer = () => {
-  const folders = useSelector((state) => state.fileListOfDM.state);
- 
+  const folders = useSelector((state) => state.fileListOfDM.state)[""];
+  console.log(folders);
   const [visibleFolders, setVisibleFolders] = useState({});
   const toggleFolderVisibility = (folderName) => {
     setVisibleFolders((prevVisibleFolders) => ({

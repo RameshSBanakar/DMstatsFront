@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import "./FileBasedDm.css";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fileListAdd } from "../../Redux/Actions/FileAction";
 import { XmlDataAdd } from "../../Redux/Actions/XmlAction";
 import {dbDataAdd} from "../../Redux/Actions/DbAction"
@@ -11,16 +11,20 @@ import { adddmpath } from "../../Redux/Actions/dmpathAction";
 import History from "../History/History";
 import { addHistory } from "../../Redux/Actions/HistoryAction";
 import { spinnerStart, spinnerStop } from "../../Redux/Actions/SpinnerAction";
+import FolderUploadComponent from "./FolderUploadComponent";
 const FileBasedDm = () => {
   //  const history = [
   //    { name: "my_dm", lastDate: "22/3/2000" },
   //    { name: "test_dm", lastDate: "30/4/2024" },
   //  ];
+  const dmpath = useSelector((state) => state.dmpath.state)
+  console.log(dmpath);
   const inputFileRef = useRef();
   const dispatch = useDispatch();
   const [dmPath, setDmPath] = useState("");
   const [listOfFiles, setListOfFile] = useState([]);
   const handleFileSelect = (event) => {
+
     const selectedFolder = event.target.files;
     let new_path = "./" + selectedFolder[0].webkitRelativePath.split("/")[0];
     setDmPath(new_path);
@@ -31,6 +35,7 @@ const FileBasedDm = () => {
   };
   const triggerToInputFile = () => {
     inputFileRef.current.click();
+    
   };
   const sendFileToBackend = async (file) => {
     const formData = new FormData();
@@ -65,6 +70,7 @@ const FileBasedDm = () => {
   const dispatchFile = (e) => {
     // e.preventDefault()
     Object.entries(listOfFiles).forEach((file) => {
+      console.log(file)
       if (file[1].name === "dm_structure.xml") {
         sendFileToBackend(file[1]);
       }
@@ -80,8 +86,10 @@ const FileBasedDm = () => {
   return (
     <>
       {/* <Sidebar /> */}
+
       <div className="fileDM-main">
-        <div className="file-input-container">
+        <FolderUploadComponent />
+        {/* <div className="file-input-container">
           <h1 className="slect-folder">Select DM Folder</h1>
           <input
             type="text"
@@ -98,18 +106,18 @@ const FileBasedDm = () => {
             onChange={handleFileSelect}
             ref={inputFileRef}
             style={{ display: "none" }}
-          />
-          {dmPath && (
+          /> */}
+          {dmpath && (
             <Link to="/DMDetailes">
-              <button className="btn-go" onClick={dispatchFile}>
+              <button className="btn-go" >
                 GO
               </button>
             </Link>
           )}
-        </div>
+        {/* </div> */}
 
         <div className="historydiv">
-          <History/>
+          <History />
         </div>
       </div>
     </>

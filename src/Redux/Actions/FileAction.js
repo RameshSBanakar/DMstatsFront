@@ -1,9 +1,10 @@
-export const fileListAdd = (data) =>async(dispath)=> {
+export const fileListAdd = (data) => async (dispath) => {
+    console.log(data);
     const folderStructure = {};
     
     Object.keys(data).forEach((key) => {
       const file = data[key];
-      const pathParts = file.webkitRelativePath.split("/");
+      const pathParts = file.path.split("/");
       let currentFolder = folderStructure;
       for (let i = 0; i < pathParts.length - 1; i++) {
         const folderName = pathParts[i];
