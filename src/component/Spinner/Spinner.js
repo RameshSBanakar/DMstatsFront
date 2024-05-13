@@ -1,15 +1,15 @@
-import React from 'react'
 
-const Spinner = () => {
+
+import React from 'react';
+import './Spinner.css'; // Import CSS file for styling
+import app_logo from "../Assets/app_logo.png"
+const MovingImage = () => {
   return (
-    <div>
-      <div className="spinner-border" role="status" style={{marginLeft:"47%",marginTop:"40vh"}}>
-        <span className="visually-hidden">
-          Loading...
-        </span>
-      </div>
+    <div className="container">
+      <img className="moving-image" src={app_logo} alt="Moving" style={{width:"90px",heigth:"50px"}}/>
     </div>
   );
-}
+};
 
-export default Spinner
+export default MovingImage;
+

@@ -1,5 +1,5 @@
 export const fileListAdd = (data) => async (dispath) => {
-    console.log(data);
+    // console.log(data);
     const folderStructure = {};
     
     Object.keys(data).forEach((key) => {
