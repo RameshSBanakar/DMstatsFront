@@ -7,7 +7,7 @@ import FolderStructure from "./FolderStructure";
 import NumberOfItems from "./NumberOfItems";
 import drop_down from "../Assets/Dropdown.webp"
 import { useSelector } from "react-redux";
-
+import SytemInfo from "./SystemInfo"
 const DmDetails = () => {
   const totalObjects = useSelector(
     (state) => state.dbFileData
@@ -17,6 +17,7 @@ const DmDetails = () => {
   const [dmStatics, setdmStatics] = useState(true);
   const [numberOfItems, setNumberOfItems] = useState(true);
   const [dataModel, setDataModel] = useState(false);
+  const [systemInfo, setSystemInfo] = useState(false);
   const toggleDmStaticVisible = () => {
     setdmStatics(!dmStatics);
   };
@@ -26,7 +27,9 @@ const DmDetails = () => {
   const toggleDataModelVisible = () => {
     setDataModel(!dataModel);
   };
-
+  const togglesystemInfoVisible = () => {
+     setSystemInfo(!systemInfo);
+   }
   // console.log(totalObjects);
  
     return (
@@ -56,6 +59,14 @@ const DmDetails = () => {
               <img src={drop_down} className="drop-down-img" alt="" />
               {dmStatics && <DBStatics />}
             </div>
+            <div
+              onClick={togglesystemInfoVisible}
+              className="dmStatics background"
+            >
+              <span className="dmDetailsDesign">System Information</span>
+              <img src={drop_down} className="drop-down-img" alt="" />
+            </div>
+            {systemInfo && <SytemInfo />}
 
             <div className="background" onClick={toggleDataModelVisible}>
               <span className="dmDetailsDesign">Data Model</span>
