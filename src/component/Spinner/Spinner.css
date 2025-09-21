@@ -13,9 +13,9 @@
     position: absolute;
     top: calc(50% - 30px);
     /* Center the image vertically and adjust by 30px */
-    animation: moveUpDown 2s infinite;
-    /* 2s duration, infinite iterations */
-}
+    animation: moveUpDown 2s infinite; 
+    /* 2s duration, infinite iterations  */
+} 
 
 @keyframes moveUpDown {
 
@@ -27,5 +27,6 @@
     50% {
         transform: translateY(30px);
         /* Move 30px down */
-    }
-}
+    } 
+} 
+

@@ -1,60 +1,139 @@
-import React, { useEffect } from "react";
-import "./Navbar.css";
-import DM_log from "../Assets/app_logo.png";
-import nav_options from "../Assets/nav-option1.png";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import DM_log from "../Assets/app_logo.png";
+import {
+  FaUserCircle,
+  FaBookmark,
+  FaSearch,
+  FaIdBadge,
+  FaSignOutAlt,
+} from "react-icons/fa";
 import { logoutUser } from "../../Redux/Actions/UserActions";
+
 const Navbar = () => {
-  const dispatch=useDispatch()
-  const navigate=useNavigate()
   const auth = useSelector((state) => state.userReducer);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [showUserMenu, setShowUserMenu] = useState(false);
+  const menuRef = useRef();
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
+    localStorage.removeItem("auth-token");
+    localStorage.removeItem("userName");
+    navigate("/");
+  };
+
+  // Close menu when clicking outside
   useEffect(() => {
-    if (auth.isAuthenticated) {
-      navigate("/filebased");
-    }
-  }, [auth.isAuthenticated]);
-  const logOut = () => {
-   dispatch(logoutUser());
- }
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setShowUserMenu(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="navbar1">
-      <div className="navbar-logo1">
-        <span onClick={() => navigate("/filebased")}>
-          <img src={DM_log} alt="" className="dmlogo" />
-        </span>
-        <Link to="/filebased">
-          <span className="DMpath">File DM</span>
-        </Link>
-        <Link to="/serverbased">
-          <span className="DMpath">Sever DM</span>
-        </Link>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-3 position-fixed w-100">
+      {/* Left: Logo */}
+      <div className="d-flex align-items-center">
+        <img
+          src={DM_log}
+          alt="App Logo"
+          className="me-2"
+          style={{ height: "40px", cursor: "pointer" }}
+          onClick={() => navigate("/dmconnect")}
+        />
+        <span className="navbar-brand mb-0 h1">DM Stats</span>
       </div>
 
-      <div className="dropdown navbar-login1">
-        <strong className="loggedInUserName">{auth.userName}</strong>
-        <button
-          className="btn dropdown-toggle"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <img src={nav_options} alt="" />
-        </button>
-        <ul className="dropdown-menu">
-          <li>
-            <Link className="dropdown-item" to="/">
-              {auth.isAuthenticated ? (
-                <span onClick={logOut}>Logout</span>
-              ) : (
-                <span>Log In</span>
-              )}
-            </Link>
-          </li>
-        </ul>
+      {/* Mobile toggle */}
+      <button
+        className="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarContent"
+        aria-controls="navbarContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span className="navbar-toggler-icon"></span>
+      </button>
+
+      {/* Center & Right */}
+      <div className="collapse navbar-collapse" id="navbarContent">
+        {auth.isAuthenticated && (
+          <form
+            className="d-flex mx-auto my-2 my-lg-0"
+            style={{ maxWidth: "500px", width: "100%" }}
+          >
+            <div className="input-group shadow-sm rounded-pill overflow-hidden">
+              <span className="input-group-text bg-white border-0 d-flex align-items-center justify-content-center">
+                <FaSearch />
+              </span>
+              <input
+                type="search"
+                className="form-control border-0"
+                placeholder="Search..."
+                aria-label="Search"
+              />
+            </div>
+          </form>
+        )}
+
+        {/* Right: Bookmarks + User */}
+        {auth.isAuthenticated && (
+          <div
+            className="d-flex align-items-center ms-3 position-relative"
+            ref={menuRef}
+          >
+            <FaBookmark
+              className="text-white fs-5 me-3"
+              style={{ cursor: "pointer" }}
+            />
+
+            <div
+              className="d-flex align-items-center"
+              style={{ cursor: "pointer" }}
+              onClick={() => setShowUserMenu(!showUserMenu)}
+            >
+              <FaUserCircle className="text-white fs-4 me-2" />
+              <strong className="text-white">{auth.userName}</strong>
+            </div>
+
+            {showUserMenu && (
+              <div
+                className="position-absolute bg-white text-dark rounded shadow p-2"
+                style={{
+                  top: "50px",
+                  right: 0,
+                  minWidth: "140px",
+                  zIndex: 2000,
+                }}
+              >
+                <button
+                  className="dropdown-item d-flex align-items-center fs-5"
+                  onClick={() => navigate(`/profile/${auth.userName}`)}
+                >
+                  <FaIdBadge className="me-2 fs-5" /> Profile
+                </button>
+                <button
+                  className="dropdown-item d-flex align-items-center text-danger fs-5"
+                  onClick={handleLogout}
+                >
+                  <FaSignOutAlt className="me-2 fs-5" /> Logout
+                </button>
+              </div>
+            )}
+          </div>
+        )}
       </div>
-    </div>
+    </nav>
   );
 };
 

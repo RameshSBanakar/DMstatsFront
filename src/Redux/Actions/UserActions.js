@@ -23,14 +23,15 @@ export const userLogin = (data) => async (dispatch) => {
         "Content-Type": "application/json",
       },
     };
+    console.log("action",data)
     dispatch(spinnerStart());
     const resp = await axios.post(
       "https://dmstats.onrender.com/auth/login",
       data,
       config
     );
-     dispatch(spinnerStop());
-    // console.log(resp.data);
+    dispatch(spinnerStop());
+    console.log(resp.data);
     if (resp.data.status) {
       Store.addNotification({
         ...notification,
